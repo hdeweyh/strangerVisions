@@ -4,9 +4,14 @@ Created on Aug 6, 2013
 @author: Heather Dewey-Hagborg
 
 run w/ cmdline args
-a 23andme datafile and the SNPS database CSV file, ie.:
+a 23andme datafile and the included SNPS database CSV file, ie.:
 
 $ python run.py "/Users/name/Documents/SNP_files/genome_NAME.txt" "/Users/name/Documents/workspace/genotype-phenotype/src/SNPs_public.csv"
+
+
+For an example 23andme data file see:
+https://github.com/msporny/dna
+https://github.com/orta/dna
 '''
 
 
