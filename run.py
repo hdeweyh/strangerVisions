@@ -9,13 +9,21 @@ Created on Aug 6, 2013
 if __name__ == '__main__':
     from genotype import*
     from phenotype import*
-
+    import sys
+    
+    if len(sys.argv) < 3:
+        print "this program requires 2 arguments to run, a 23andme data file path as well as a SNP CSV database path."
+        sys.exit(-1)
+    
+    data_23andmeFile = sys.argv[1]
+    snpFile = sys.argv[2]
+    
     genotype = Genotype()
     phenotype = Phenotype()
     
-    genotype.loadSNPFile("/Users/heather/Documents/strangerVisions/SNP_files/genome_Thomas_Dexter_Full_20130621222828.txt")
+    genotype.loadSNPFile(data_23andmeFile)
     
-    phenotype.loadPossibleSNPs("/Users/heather/Documents/strangerVisions/SNPs_public.csv")
+    phenotype.loadPossibleSNPs(snpFile)
 
     phenotype.mapGenoToPheno(genotype.SNPs)
     
