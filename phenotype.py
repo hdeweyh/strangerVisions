@@ -23,13 +23,14 @@ class Phenotype:
         reader = csv.reader(open(filename, "rU"), delimiter=',')
         for row in reader:
             #print row
-            if (len(row) == 8):
+            if (len(row) >= 8):
                 if row[0] == '':
                     continue
-                trait = Trait(row[0], row[7])
-                trait.addAllele(row[1], row[2])
-                trait.addAllele(row[3], row[4])
-                trait.addAllele(row[5], row[6])
+                trait = Trait(row[0], row[-1])
+                i=1
+                while i< (len(row)-1):
+                    trait.addAllele(row[i], row[i+1]) 
+                    i=i+1
                 
                 self.possibleTraits[trait.rsid] = trait #add this new trait to dict indexed by RSID
                 self.possibleTraitsList.append(trait) #add to list of traits as well
@@ -59,4 +60,5 @@ class Phenotype:
                         print "genotype " , genotype[trait.rsid], "and rev comp " , rev, " not found in traits for " , trait.rsid   
                         
             else:
-                print trait.rsid, " - unavailable"
+                print "genotype not found for ", trait.rsid
+                
