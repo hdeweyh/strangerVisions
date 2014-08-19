@@ -8,8 +8,7 @@ import csv
 class Genotype:
    
     SNPs = dict()
-
-        
+    
     def loadSNPFile(self, filename):
         #load a tab delimited file of SNPs -> genotypes (like 23andme generates)
         print "reading  data from " + filename 
