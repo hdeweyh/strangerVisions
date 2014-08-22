@@ -12,7 +12,7 @@ class Genotype:
     def loadSNPFile(self, filename):
         #load a tab delimited file of SNPs -> genotypes (like 23andme generates)
         print "reading  data from " + filename 
-        reader = csv.reader(open(filename, "r"), delimiter='\t')
+        reader = csv.reader(open(filename, "rU"), delimiter='\t')
         for row in reader:
             if (len(row) == 4):
                 self.SNPs[row[0]] = row[3] #set SNP -> genotype value
