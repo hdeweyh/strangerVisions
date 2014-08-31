@@ -26,7 +26,12 @@ class Phenotype:
             if (len(row) >= 8):
                 if row[0] == '':
                     continue
-                trait = Trait(row[0], row[-1])
+                
+                if self.possibleTraits.has_key(row[0]):
+                    trait = self.possibleTraits[row[0]]
+                else:
+                    trait = Trait(row[0], row[-1])
+                    
                 i=1
                 while i< (len(row)-1):
                     trait.addAllele(row[i], row[i+1]) 
@@ -60,5 +65,5 @@ class Phenotype:
                         print "genotype " , genotype[trait.rsid], "and rev comp " , rev, " not found in traits for " , trait.rsid   
                         
             else:
-                print "genotype not found for ", trait.rsid, " available genotype mappings: ", trait.alleles
+                print trait, " genotype not found for ", trait.rsid, " available genotype mappings: ", trait.alleles
                 
