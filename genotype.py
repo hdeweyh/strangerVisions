@@ -16,6 +16,8 @@ class Genotype:
         for row in reader:
             if (len(row) == 4):
                 self.SNPs[row[0]] = row[3] #set SNP -> genotype value
+            elif (len(row) == 2):
+                self.SNPs[row[0]] = row[1] #set SNP -> genotype value exemplar format
         print "done reading SNP file"
         
     def getSNPvalue(self, snp):

@@ -65,5 +65,5 @@ class Phenotype:
                         print "genotype " , genotype[trait.rsid], "and rev comp " , rev, " not found in traits for " , trait.rsid   
                         
             else:
-                print trait, " genotype not found for ", trait.rsid, " available genotype mappings: ", trait.alleles
-                
+               # print trait, " genotype not found for ", trait.rsid, " available genotype mappings: ", trait.alleles
+                print "genotype not found for ", trait.rsid
