@@ -25,3 +25,5 @@ class Genotype:
             return self.SNPs[snp]
         else:
             return -1
+
+        
