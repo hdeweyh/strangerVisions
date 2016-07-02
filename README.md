@@ -12,3 +12,7 @@ $ python run.py "/Users/name/Documents/SNP_files/genome_NAME.txt" "/Users/name/D
 For an example 23andme data file see:
 https://github.com/msporny/dna
 https://github.com/orta/dna
+
+It works with VCF files too now, you can generate a larger imputed genotype file over at
+DNA Land 
+https://dna.land/
