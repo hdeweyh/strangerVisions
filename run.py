@@ -22,16 +22,16 @@ if __name__ == '__main__':
     import sys
     
     if len(sys.argv) < 3:
-        print "this program requires 2 arguments to run, a 23andme data file path as well as a SNP CSV database path."
+        print "this program requires 2 arguments to run, a data file path as well as a SNP CSV database path."
         sys.exit(-1)
     
-    data_23andmeFile = sys.argv[1]
+    dataFile = sys.argv[1]
     snpFile = sys.argv[2]
     
     genotype = Genotype()
     phenotype = Phenotype()
     
-    genotype.loadSNPFile(data_23andmeFile)
+    genotype.loadSNPFile(dataFile)
     
     phenotype.loadPossibleSNPs(snpFile)
 
