@@ -53,6 +53,9 @@ class Phenotype:
                 self.traits[trait.rsid] = genotype[trait.rsid]
                 if trait.alleles.has_key(genotype[trait.rsid]):
                     print trait.rsid, " - ", genotype[trait.rsid], " - ", trait.alleles[genotype[trait.rsid]]
+                # if not try flipping the order of the alleles
+                elif trait.alleles.has_key(genotype[trait.rsid][::-1]):
+                     print trait.rsid, " - ", genotype[trait.rsid][::-1], " (flipped) - ", trait.alleles[genotype[trait.rsid][::-1]]
                 else:
                     #try reverse complement
                     #print genotype[trait.rsid]
