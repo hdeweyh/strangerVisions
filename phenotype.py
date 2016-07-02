@@ -64,6 +64,9 @@ class Phenotype:
                     #print rev
                     if trait.alleles.has_key(rev):
                         print trait.rsid, " - ", rev, " (rev comp) -", trait.alleles[rev]
+                    # if not try flipping the order of the alleles
+                    elif trait.alleles.has_key(rev[::-1]):
+                        print trait.rsid, " - ", rev[::-1], " (flipped) - ", trait.alleles[rev[::-1]]
                     else:
                         print "genotype " , genotype[trait.rsid], "and rev comp " , rev, " not found in traits for " , trait.rsid   
                         
