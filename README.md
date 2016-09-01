@@ -10,6 +10,8 @@ http://deweyhagborg.com/projects/stranger-visions
 Originally designed for 23andme style data tt works with VCF files now too. 
 You can generate a larger imputed genotype file from your 23andme results over at DNA Land 
 https://dna.land/
+
+This program requires Python 2.7.12 and Biopython
 ~~~
 
 run w/ cmdline args
