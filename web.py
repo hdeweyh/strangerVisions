@@ -1,11 +1,10 @@
-import cherrypy
+import cherrypy, os
 from jinja2 import Environment, FileSystemLoader
 env = Environment(loader=FileSystemLoader('templates'))
 
 from genotype import*
 from phenotype import*
 
-import os
 
 class FileUpload(object):
     @cherrypy.expose
@@ -31,5 +30,16 @@ if __name__ == '__main__':
     phenotype = Phenotype()
     phenotype.loadPossibleSNPs("SNPs_public.csv")
 
+    conf = {
+        '/': {
+            'tools.sessions.on': True,
+            'tools.staticdir.root': os.path.abspath(os.getcwd())
+        },
+        '/css': {
+            'tools.staticdir.on': True,
+            'tools.staticdir.dir': './css'
+        }
+    }
+
     # Starting webserver
-    cherrypy.quickstart(FileUpload())
+    cherrypy.quickstart(FileUpload(), '/', conf)
