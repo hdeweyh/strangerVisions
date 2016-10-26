@@ -1,9 +1,7 @@
 import cherrypy, os
 from jinja2 import Environment, FileSystemLoader
-env = Environment(loader=FileSystemLoader('templates'))
-
-from genotype import*
-from phenotype import*
+from genotype import *
+from phenotype import *
 
 
 class FileUpload(object):
@@ -41,6 +39,9 @@ if __name__ == '__main__':
             'tools.staticdir.dir': './css'
         }
     }
+
+    # Loading jinja2 templates
+    env = Environment(loader=FileSystemLoader('templates'))
 
     # Starting webserver
     cherrypy.quickstart(FileUpload(), '/', conf)
