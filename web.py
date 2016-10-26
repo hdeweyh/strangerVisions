@@ -30,6 +30,7 @@ if __name__ == '__main__':
     phenotype = Phenotype()
     phenotype.loadPossibleSNPs("SNPs_public.csv")
 
+    # Web server configuration
     conf = {
         '/': {
             'tools.sessions.on': True,
