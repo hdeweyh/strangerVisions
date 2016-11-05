@@ -1,0 +1,8 @@
+body {
+  font-family: Helvetica, Arial, Sans-Serif;
+}
+
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+}

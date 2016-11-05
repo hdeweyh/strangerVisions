@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Upload{% endblock %}
+
+{% block content %}
+<h2>Upload a file</h2>
+<form action="upload" method="post" enctype="multipart/form-data">
+  <legend>Choose a 23andMe text file or a VCF text file.</legend>
+  <label>Filename: </label><input type="file" name="myFile" />
+  <input type="submit" value="Upload"/>
+</form>
+{% endblock %}
