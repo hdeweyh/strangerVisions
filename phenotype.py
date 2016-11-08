@@ -69,7 +69,7 @@ class Phenotype:
                     elif trait.alleles.has_key(rev[::-1]):
                         results.append( trait.rsid + " - " + rev[::-1] + " (flipped) - " + trait.alleles[rev[::-1]] )
                     else:
-                        results.append( "genotype " + genotype[trait.rsid] + "and rev comp " + rev + " not found in traits for " + trait.rsid )
+                        results.append( "genotype " + genotype[trait.rsid] + " and rev comp " + rev + " not found in traits for " + trait.rsid )
 
             else:
                # print trait, " genotype not found for ", trait.rsid, " available genotype mappings: ", trait.alleles
