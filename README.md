@@ -7,11 +7,15 @@ It also needs to take account of SNP interactions with each other (I would love 
 This is the underlying idea behind Stranger Visions, an artwork which imagines what strangers might look like from their DNA.
 http://deweyhagborg.com/projects/stranger-visions
 
-Originally designed for 23andme style data tt works with VCF files now too.
+Originally designed for 23andme style data it works with VCF files now too.
 You can generate a larger imputed genotype file from your 23andme results over at DNA Land
 https://dna.land/
 
 This program works with Python 2.7
+
+If you are having trouble with dependencies you might want to consider running this 
+program in a virtual environment. 
+See: http://docs.python-guide.org/en/latest/dev/virtualenvs/
 
 Installation
 ------------
