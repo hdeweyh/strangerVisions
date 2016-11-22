@@ -6,3 +6,16 @@ body {
   max-width: 800px;
   margin: 0 auto;
 }
+
+table, th, td {
+  border-collapse: collapse;
+}
+
+td {
+  vertical-align: top;
+  padding: 3px;
+}
+
+tr:nth-child(2n-1){
+  background: #eee;
+}
