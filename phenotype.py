@@ -53,10 +53,24 @@ class Phenotype:
             if genotype.has_key(trait.rsid):
                 self.traits[trait.rsid] = genotype[trait.rsid]
                 if trait.alleles.has_key(genotype[trait.rsid]):
-                    results.append( trait.rsid + "\t" + genotype[trait.rsid] + "\t" + trait.alleles[genotype[trait.rsid]] )
+                    results.append(
+                        dict( rsid=trait.rsid,
+                            genotype=genotype[trait.rsid],
+                            allele=trait.alleles[genotype[trait.rsid]],
+                            flipped=False,
+                            revComp=False
+                        )
+                    )
                 # if not try flipping the order of the alleles
                 elif trait.alleles.has_key(genotype[trait.rsid][::-1]):
-                     results.append( trait.rsid + "\t" + genotype[trait.rsid][::-1] + " (flipped)\t" + trait.alleles[genotype[trait.rsid][::-1]] )
+                    results.append(
+                        dict( rsid=trait.rsid,
+                            genotype=genotype[trait.rsid][::-1],
+                            allele=trait.alleles[genotype[trait.rsid][::-1]],
+                            flipped=True,
+                            revComp=False
+                        )
+                    )
                 else:
                     #try reverse complement
                     #print genotype[trait.rsid]
@@ -64,14 +78,35 @@ class Phenotype:
                     rev = str(my_dna.complement())
                     #print rev
                     if trait.alleles.has_key(rev):
-                        results.append( trait.rsid + "\t" + rev + " (rev comp)\t" + trait.alleles[rev] )
+                        results.append(
+                            dict( rsid=trait.rsid,
+                                genotype=rev,
+                                allele=trait.alleles[rev],
+                                flipped=False,
+                                revComp=True
+                            )
+                        )
                     # if not try flipping the order of the alleles
                     elif trait.alleles.has_key(rev[::-1]):
-                        results.append( trait.rsid + "\t" + rev[::-1] + " (flipped)\t" + trait.alleles[rev[::-1]] )
+                        results.append(
+                            dict( rsid=trait.rsid,
+                                genotype=rev[::-1],
+                                allele=trait.alleles[rev[::-1]],
+                                flipped=True,
+                                revComp=True
+                            )
+                        )
                     else:
-                        results.append( trait.rsid  + "\tNOT FOUND w/ genotype " + genotype[trait.rsid] + " and rev comp " + rev )
-
+                        results.append(
+                            dict( rsid=trait.rsid,
+                                allele= "NOT FOUND w/ genotype " + genotype[trait.rsid] + " and rev comp " + rev
+                            )
+                        )
             else:
                # print trait, " genotype not found for ", trait.rsid, " available genotype mappings: ", trait.alleles
-                results.append(  trait.rsid + "\t NOT FOUND")
+                results.append(
+                    dict( rsid=trait.rsid,
+                        allele= "NOT FOUND"
+                    )
+                )
         return results
