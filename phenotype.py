@@ -53,10 +53,10 @@ class Phenotype:
             if genotype.has_key(trait.rsid):
                 self.traits[trait.rsid] = genotype[trait.rsid]
                 if trait.alleles.has_key(genotype[trait.rsid]):
-                    results.append( trait.rsid + " - " + genotype[trait.rsid] + " - " + trait.alleles[genotype[trait.rsid]] )
+                    results.append( trait.rsid + "\t" + genotype[trait.rsid] + "\t" + trait.alleles[genotype[trait.rsid]] )
                 # if not try flipping the order of the alleles
                 elif trait.alleles.has_key(genotype[trait.rsid][::-1]):
-                     results.append( trait.rsid + " - " + genotype[trait.rsid][::-1] + " (flipped) - " + trait.alleles[genotype[trait.rsid][::-1]] )
+                     results.append( trait.rsid + "\t" + genotype[trait.rsid][::-1] + " (flipped)\t" + trait.alleles[genotype[trait.rsid][::-1]] )
                 else:
                     #try reverse complement
                     #print genotype[trait.rsid]
@@ -64,14 +64,14 @@ class Phenotype:
                     rev = str(my_dna.complement())
                     #print rev
                     if trait.alleles.has_key(rev):
-                        results.append( trait.rsid + " - " + rev + " (rev comp) -" + trait.alleles[rev] )
+                        results.append( trait.rsid + "\t" + rev + " (rev comp)\t" + trait.alleles[rev] )
                     # if not try flipping the order of the alleles
                     elif trait.alleles.has_key(rev[::-1]):
-                        results.append( trait.rsid + " - " + rev[::-1] + " (flipped) - " + trait.alleles[rev[::-1]] )
+                        results.append( trait.rsid + "\t" + rev[::-1] + " (flipped)\t" + trait.alleles[rev[::-1]] )
                     else:
-                        results.append( "genotype " + genotype[trait.rsid] + " and rev comp " + rev + " not found in traits for " + trait.rsid )
+                        results.append( trait.rsid  + "\tNOT FOUND w/ genotype " + genotype[trait.rsid] + " and rev comp " + rev )
 
             else:
                # print trait, " genotype not found for ", trait.rsid, " available genotype mappings: ", trait.alleles
-                results.append( "genotype not found for " + trait.rsid )
+                results.append(  trait.rsid + "\t NOT FOUND")
         return results
