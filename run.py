@@ -14,11 +14,10 @@ https://github.com/msporny/dna
 https://github.com/orta/dna
 '''
 
-
-
 if __name__ == '__main__':
     from genotype import*
     from phenotype import*
+    from console import*
     import sys
 
     if len(sys.argv) < 3:
@@ -35,5 +34,7 @@ if __name__ == '__main__':
 
     phenotype.loadPossibleSNPs(snpFile)
 
-    for items in phenotype.mapGenoToPheno(genotype.SNPs):
-        print items
+    items = phenotype.mapGenoToPheno(genotype.SNPs)
+
+    console = Console()
+    console.printTable(items)
