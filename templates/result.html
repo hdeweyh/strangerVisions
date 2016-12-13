@@ -7,18 +7,16 @@
 <table>
   <tr>
     <th>rsid</th>
-    <th>genotype</th>
-    <th>flipped</th>
-    <th>rev comp</th>
     <th>allele</th>
+    <th>rev comp</th>
+    <th>description</th>
   </tr>
 {% for item in results%}
   <tr>
     <td>{{ item.rsid }}</td>
     <td>{{ item.genotype }}</td>
-    <td>{% if item.flipped %}✓{% endif %}</td>
     <td>{% if item.revComp %}✓{% endif %}</td>
-    <td>{{ item.allele }}</td>
+    <td>{{ item.description }}</td>
   </tr>
 {% endfor %}
 </table>
