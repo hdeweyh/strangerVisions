@@ -56,7 +56,7 @@ class Phenotype:
                     results.append(
                         dict( rsid=trait.rsid,
                             genotype=genotype[trait.rsid],
-                            allele=trait.alleles[genotype[trait.rsid]],
+                            description=trait.alleles[genotype[trait.rsid]],
                             flipped=False,
                             revComp=False
                         )
@@ -66,7 +66,7 @@ class Phenotype:
                     results.append(
                         dict( rsid=trait.rsid,
                             genotype=genotype[trait.rsid][::-1],
-                            allele=trait.alleles[genotype[trait.rsid][::-1]],
+                            description=trait.alleles[genotype[trait.rsid][::-1]],
                             flipped=True,
                             revComp=False
                         )
@@ -81,7 +81,7 @@ class Phenotype:
                         results.append(
                             dict( rsid=trait.rsid,
                                 genotype=rev,
-                                allele=trait.alleles[rev],
+                                description=trait.alleles[rev],
                                 flipped=False,
                                 revComp=True
                             )
@@ -91,7 +91,7 @@ class Phenotype:
                         results.append(
                             dict( rsid=trait.rsid,
                                 genotype=rev[::-1],
-                                allele=trait.alleles[rev[::-1]],
+                                description=trait.alleles[rev[::-1]],
                                 flipped=True,
                                 revComp=True
                             )
@@ -99,14 +99,14 @@ class Phenotype:
                     else:
                         results.append(
                             dict( rsid=trait.rsid,
-                                allele= "NOT FOUND w/ genotype " + genotype[trait.rsid] + " and rev comp " + rev
+                                description= "NOT FOUND w/ genotype " + genotype[trait.rsid] + " and rev comp " + rev
                             )
                         )
             else:
                # print trait, " genotype not found for ", trait.rsid, " available genotype mappings: ", trait.alleles
                 results.append(
                     dict( rsid=trait.rsid,
-                        allele= "NOT FOUND"
+                        description= "NOT FOUND"
                     )
                 )
         return results

@@ -16,19 +16,18 @@ class Console:
 
     def printTable(self, results):
         # Results is an array of dictionnaries returned by the map2pheno command
-        header = ['rsid', 'ge', 'f', 'r', 'allele' ]
+        header = ['rsid', 'allele', 'rev comp', 'description' ]
         self.table.header(header)
         # Will use the maximum width to display the table
         # There is 3 characters between each colum.
-        self.table.set_cols_width( [10, 2, 1, 1, self.width - 27] )
+        self.table.set_cols_width( [10, 6, 4, self.width - 30] )
 
         for item in results:
             row = [
                 item['rsid'],
                 item['genotype'] if 'genotype' in item  else "",
-                "✓" if 'flipped' in item and item['flipped'] else "",
                 "✓" if 'revComp' in item and item['revComp'] else "",
-                item['allele'] if item['allele'][0:3] != 'NOT' else bcolors.RED + item['allele'] + bcolors.ENDC
+                item['description'] if item['description'][0:3] != 'NOT' else bcolors.GREY + item['description'] + bcolors.ENDC
             ]
             self.table.add_row( row )
 
@@ -44,3 +43,5 @@ class bcolors:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
+    GREY = '\033[2m'
+    INVERTED = '\033[7m'
